@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import {signUp} from '../../utilities/users-service'
+import {update} from '../../utilities/users-service'
 
 function Update({ user }) {
     const [state, setState]=useState('')
@@ -22,7 +22,7 @@ function Update({ user }) {
             delete formData.confirm;
             // const {name, email, password} = state
             console.log('Handle Submit = ', formData);
-            const user = await signUp(formData)
+            const user = await update(formData)
             // setUser(user);
         } catch (err){
             setState({...state, error: 'Sign Up Failed - Try Again'})
@@ -39,7 +39,7 @@ function Update({ user }) {
                     <label>Name</label>
                     <input type="text" name="name" value={user.name || ''} onChange={handleChange} required />
                     <label>Email</label>
-                    <input type="email" name="email" value={user.email || ''} onChange={handleChange} required />
+                    <label>{user.email}</label>
                     <label>Password</label>
                     <input type="password" name="password" value={user.password || ''} onChange={handleChange} required />
                     <label>Confirm</label>

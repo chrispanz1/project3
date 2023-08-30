@@ -8,6 +8,7 @@ router.post('/', usersCtrl.create);
 
 // POST /api/users/login
 router.post('/login', usersCtrl.login);
+router.post('/update', usersCtrl.update);
 
 // GET /api/users/check-token
 router.get('/check-token', ensureLoggedIn, usersCtrl.checkToken);

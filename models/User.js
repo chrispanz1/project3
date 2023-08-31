@@ -41,5 +41,9 @@ const userSchema = new Schema(
     this.password = await bcrypt.hash(this.password, SALT_ROUNDS);
     return next();
 });
+userSchema.statics.update=async function(object){
+    return await mongoose.model("User").findByIdAndUpdate(object.id,object)
+    
+}
 
 module.exports = mongoose.model('User', userSchema);

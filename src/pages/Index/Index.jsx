@@ -4,7 +4,8 @@ function Index() {
     return (
         <div>
 
-            <h1>Sei Cafe</h1>
+            
+            <h1> welcome to Music directory you can use this to keep track of your favorite songs</h1>
         </div>
     )
 }

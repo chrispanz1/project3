@@ -12,12 +12,13 @@ export async function signUp(userData) {
     return getUser();
 }
 export async function update(userData) {
+    console.log("userserviceupdate",userData)
     // Delegate the network request code to the users-api.js API module
     // which will ultimately return a JSON Web Token (JWT)
     const token = await usersAPI.update(userData);
 
     //Persist the "token"
-    localStorage.setItem('token', token);
+    //localStorage.setItem('token', token);
 
     // Baby step by returning whatever is sent back by the server
     return getUser();
@@ -41,8 +42,23 @@ export function getToken() {
 export function getUser() {
     const token = getToken();
     // If there's a token, return the user in the payload, otherwise return null
-    console.log('GET USER',token ? JSON.parse(atob(token.split('.')[1])).user : null);
+    //console.log('GET USER',token ? JSON.parse(atob(token.split('.')[1])).user : null);
     return token ? JSON.parse(atob(token.split('.')[1])).user : null;
+}
+//----------------------------------------------//
+export function getUserId() {
+    const token = getToken();
+    // If there's a token, return the user in the payload, otherwise return null
+    //console.log('GET USERID',token ? JSON.parse(atob(token.split('.')[1])).user._id : "");
+    return token ? JSON.parse(atob(token.split('.')[1])).user._id : null;
+}
+export function getUserDb() {
+    const userDb=usersAPI.getUserDb(getUserId())
+    // If there's a token, return the user in the payload, otherwise return null
+    //console.log('GET USERID',token ? JSON.parse(atob(token.split('.')[1])).user._id : "");
+    //return token ? JSON.parse(atob(token.split('.')[1])).user._id : null;
+    console.log("hey",getUserId())
+    return userDb
 }
 
 export function logOut() {

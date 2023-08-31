@@ -36,13 +36,32 @@ const login = async (req, res) => {
 const update = async (req, res) => {
   try {
     // Find the user by their email
-    const user = await User.findOne({ email: req.body.email });
+    const user = await User.update(req.body);
+    //console.log("body",req.body)
 
-    const isMatch = await bcrypt.compare(req.body.password, user.password);
+    //const isMatch = await bcrypt.compare(req.body.password, user.password);
 
-    if (!isMatch) throw new Error();
+    //if (!isMatch) throw new Error();
 
     res.status(200).json(createJWT(user));
+  } catch (err) {
+    res.status(400).json({ msg: err.message, reason: 'Bad Credentials' });
+  }
+};
+const dbUser = async (req, res) => {
+  try {
+    //const email=JSON.parse(atob(req.body.split('.')[1])).user
+    // Find the user by their email
+    console.log("body",req.body)
+    //const user = await User.findById(req.body);
+    //console.log(req.body)
+    
+
+    //const isMatch = await bcrypt.compare(req.body.password, user.password);
+
+    //if (!isMatch) throw new Error();
+//return user
+    //res.status(200).json(createJWT(user));
   } catch (err) {
     res.status(400).json({ msg: err.message, reason: 'Bad Credentials' });
   }
@@ -66,4 +85,6 @@ module.exports = {
   create,
   login,
   checkToken,
+  update,
+  dbUser
 };

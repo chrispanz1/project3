@@ -6,14 +6,16 @@ import { getUser } from '../src/utilities/users-service';
 
 //import components
 import AuthPage from './pages/Auth/AuthPage'
-import NewOrderPage from './pages/NewOrder/NewOrderPage'
-import OrderHistoryPage from './pages/OrderHistory/OrderHistoryPage'
+import MusicQuePage from './pages/MusicQuePage/MusicQuePage'
+import CreatePage from './pages/CreatePage/CreatePage'
 import NavBar from './components/NavBar/NavBar';
 import Index from './pages/Index/Index'
 import Update from './components/Update/Update'
 
 //import css
 import './App.css';
+
+
 
 function App() {
   const [user, setUser] = useState(getUser());
@@ -31,8 +33,8 @@ function App() {
           <NavBar user={user} setUser={setUser}/>
           <Routes>
             <Route path="/" element={<Index />}/>
-            <Route path="/orders/new/" element={<NewOrderPage />}/>
-            <Route path="/orders/history/" element={<OrderHistoryPage  user={user}/>}/>
+            <Route path="/musicQue" element={<MusicQuePage />}/>
+            <Route path="/create/" element={<CreatePage  user={user}/>}/>
             <Route path="/update/" element={<Update  user={user}/>}/>
           </Routes> 
         </>

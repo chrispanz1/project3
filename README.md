@@ -2,4 +2,5 @@
 
 ## Ive utilized react, mongo database, axios to complete this project Ive created routes and authentication to move data throughout the code.
 ### My favorite component is the musicque component because it displays the song information for the user!
-### In terms of wire framing my project is very simple, I tried to make everything look obvious on the page without to much clutter! I used the mern infrastructure so that my code was fully functional in both the back end and front end, I included various react components to divide up the project, I included the gitignore file to make sure authentication information was not include within the git hub repository.
+### In terms of wire framing my project is very simple, I tried to make everything look obvious on the page without to much clutter! I used the mern infrastructure so that my code was fully functional in both the back end and front end, I included various react components to divide up the project, I included the gitignore file to make sure authentication information was not include within the git hub repository. I will also include my url to my render page https://this-is-my-render-for-project3.onrender.com
+

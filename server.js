@@ -6,7 +6,7 @@ const path = require('path');
 const favicon = require('serve-favicon');
 const logger = require('morgan');
 const cors=require('cors')
-//boilerplate above necessary requirementsa//
+//boilerplate above necessary requirement1//
 const app = express();
 
 app.use(logger('dev'));
